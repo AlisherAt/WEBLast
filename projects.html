@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Alisher Akhmett</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-code me-2"></i>Alisher Akhmett
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    <section class="section-padding bg-gradient text-white">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3">My Projects</h1>
+            <p class="lead">A collection of interactive web projects showcasing modern development techniques</p>
+        </div>
+    </section>
+
+    
+    <section class="section-padding">
+        <div class="container">
+            
+            <div class="text-center mb-5">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary active" data-filter="all">All Projects</button>
+                    <button type="button" class="btn btn-outline-primary" data-filter="web">Web Development</button>
+                    <button type="button" class="btn btn-outline-primary" data-filter="interactive">Interactive</button>
+                    <button type="button" class="btn btn-outline-primary" data-filter="responsive">Responsive</button>
+                </div>
+            </div>
+
+            
+            <div class="row" id="projects-container">
+                
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="web interactive">
+                    <div class="project-card">
+                        <div class="card h-100 shadow-sm">
+                            <img src="img4.png" class="card-img-top" alt="Project Juventus">
+                            <div class="card-body">
+                                <h5 class="card-title">Project Juventus</h5>
+                                <p class="card-sub">GREATEST EVER UCL GOAL</p>
+                                <p class="card-text">Interactive football-themed web project featuring modern CSS animations, responsive design, and dynamic content management.</p>
+                                <div class="mb-3">
+                                    <span class="badge bg-primary me-1">HTML5</span>
+                                    <span class="badge bg-info me-1">CSS3</span>
+                                    <span class="badge bg-warning">JavaScript</span>
+                                </div>
+                                <button class="btn btn-view" data-bs-toggle="modal" data-bs-target="#projectModal1">
+                                    <i class="fas fa-eye me-2"></i>View Details
+                                </button>
+                                <a href="#" class="btn btn-outline-primary ms-2">
+                                    <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="responsive interactive">
+                    <div class="project-card">
+                        <div class="card h-100 shadow-sm">
+                            <img src="img5.png" class="card-img-top" alt="Project Perfection">
+                            <div class="card-body">
+                                <h5 class="card-title">Project Perfection</h5>
+                                <p class="card-sub">BEST GOAL FROM BEST PLAYER</p>
+                                <p class="card-text">Responsive portfolio website showcasing advanced CSS Grid, Flexbox layouts, and jQuery animations with perfect mobile compatibility.</p>
+                                <div class="mb-3">
+                                    <span class="badge bg-success me-1">Bootstrap</span>
+                                    <span class="badge bg-secondary me-1">jQuery</span>
+                                    <span class="badge bg-dark">Responsive</span>
+                                </div>
+                                <button class="btn btn-view" data-bs-toggle="modal" data-bs-target="#projectModal2">
+                                    <i class="fas fa-eye me-2"></i>View Details
+                                </button>
+                                <a href="#" class="btn btn-outline-primary ms-2">
+                                    <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="web interactive">
+                    <div class="project-card">
+                        <div class="card h-100 shadow-sm">
+                            <img src="img6.png" class="card-img-top" alt="Project Simeone">
+                            <div class="card-body">
+                                <h5 class="card-title">Project Simeone</h5>
+                                <p class="card-sub">Revenge on Simeone 3-0(SUIIIII)</p>
+                                <p class="card-text">Dynamic web application with interactive features, form validation, real-time updates, and engaging user interface elements.</p>
+                                <div class="mb-3">
+                                    <span class="badge bg-danger me-1">Forms</span>
+                                    <span class="badge bg-info me-1">Validation</span>
+                                    <span class="badge bg-success">Interactive</span>
+                                </div>
+                                <button class="btn btn-view" data-bs-toggle="modal" data-bs-target="#projectModal3">
+                                    <i class="fas fa-eye me-2"></i>View Details
+                                </button>
+                                <a href="#" class="btn btn-outline-primary ms-2">
+                                    <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="web responsive">
+                    <div class="project-card">
+                        <div class="card h-100 shadow-sm">
+                            <img src="img1.png" class="card-img-top" alt="Assignment Portfolio">
+                            <div class="card-body">
+                                <h5 class="card-title">Assignment Portfolio</h5>
+                                <p class="card-sub">COMPREHENSIVE WEB DEVELOPMENT</p>
+                                <p class="card-text">Complete assignment showcase featuring all web development concepts: HTML forms, CSS layouts, JavaScript functionality, and jQuery effects.</p>
+                                <div class="mb-3">
+                                    <span class="badge bg-primary me-1">HTML Forms</span>
+                                    <span class="badge bg-warning me-1">CSS Grid</span>
+                                    <span class="badge bg-info">jQuery</span>
+                                </div>
+                                <button class="btn btn-view" data-bs-toggle="modal" data-bs-target="#projectModal4">
+                                    <i class="fas fa-eye me-2"></i>View Details
+                                </button>
+                                <a href="Untitled-1.html" class="btn btn-outline-primary ms-2">
+                                    <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="interactive responsive">
+                    <div class="project-card">
+                        <div class="card h-100 shadow-sm">
+                            <img src="img2.png" class="card-img-top" alt="Interactive Gallery">
+                            <div class="card-body">
+                                <h5 class="card-title">Interactive Gallery</h5>
+                                <p class="card-sub">DYNAMIC IMAGE SHOWCASE</p>
+                                <p class="card-text">Responsive image gallery with lightbox effects, filtering options, and smooth animations built with pure JavaScript and CSS.</p>
+                                <div class="mb-3">
+                                    <span class="badge bg-dark me-1">Gallery</span>
+                                    <span class="badge bg-primary me-1">Animations</span>
+                                    <span class="badge bg-secondary">Lightbox</span>
+                                </div>
+                                <button class="btn btn-view" data-bs-toggle="modal" data-bs-target="#projectModal5">
+                                    <i class="fas fa-eye me-2"></i>View Details
+                                </button>
+                                <a href="#" class="btn btn-outline-primary ms-2">
+                                    <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col-lg-4 col-md-6 mb-4 project-item" data-category="web">
+                    <div class="project-card">
+                        <div class="card h-100 shadow-sm">
+                            <img src="img3.png" class="card-img-top" alt="Form Validation System">
+                            <div class="card-body">
+                                <h5 class="card-title">Form Validation System</h5>
+                                <p class="card-sub">ADVANCED FORM HANDLING</p>
+                                <p class="card-text">Comprehensive form validation system with real-time feedback, custom error messages, and seamless user experience.</p>
+                                <div class="mb-3">
+                                    <span class="badge bg-success me-1">Validation</span>
+                                    <span class="badge bg-danger me-1">Error Handling</span>
+                                    <span class="badge bg-warning">UX</span>
+                                </div>
+                                <button class="btn btn-view" data-bs-toggle="modal" data-bs-target="#projectModal6">
+                                    <i class="fas fa-eye me-2"></i>View Details
+                                </button>
+                                <a href="#" class="btn btn-outline-primary ms-2">
+                                    <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    
+    <div class="modal fade" id="projectModal1" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Project Juventus - Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img4.png" class="img-fluid mb-3 rounded" alt="Project Juventus">
+                    <h6>Project Overview</h6>
+                    <p>An interactive football-themed web project that demonstrates modern web development techniques including responsive design, CSS animations, and JavaScript interactivity.</p>
+                    
+                    <h6>Technologies Used</h6>
+                    <ul class="list-unstyled">
+                        <li><i class="fab fa-html5 text-danger me-2"></i>HTML5 - Semantic markup and structure</li>
+                        <li><i class="fab fa-css3-alt text-primary me-2"></i>CSS3 - Advanced styling and animations</li>
+                        <li><i class="fab fa-js-square text-warning me-2"></i>JavaScript - Interactive functionality</li>
+                        <li><i class="fab fa-bootstrap text-purple me-2"></i>Bootstrap - Responsive framework</li>
+                    </ul>
+                    
+                    <h6>Key Features</h6>
+                    <ul>
+                        <li>Responsive design for all devices</li>
+                        <li>Smooth CSS animations and transitions</li>
+                        <li>Interactive hover effects</li>
+                        <li>Modern card-based layout</li>
+                        <li>Optimized performance</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="#" class="btn btn-primary">View Live Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal fade" id="projectModal2" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Project Perfection - Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="img5.png" class="img-fluid mb-3 rounded" alt="Project Perfection">
+                    <h6>Project Overview</h6>
+                    <p>A responsive portfolio website showcasing advanced CSS Grid and Flexbox layouts with jQuery animations, perfect for mobile and desktop viewing.</p>
+                    
+                    <h6>Technologies Used</h6>
+                    <ul class="list-unstyled">
+                        <li><i class="fab fa-bootstrap text-purple me-2"></i>Bootstrap 5 - Grid system and components</li>
+                        <li><i class="fas fa-code text-success me-2"></i>jQuery - Effects and animations</li>
+                        <li><i class="fas fa-mobile-alt text-info me-2"></i>Responsive Design - Mobile-first approach</li>
+                        <li><i class="fas fa-paint-brush text-secondary me-2"></i>Custom CSS - Advanced styling</li>
+                    </ul>
+                    
+                    <h6>Key Features</h6>
+                    <ul>
+                        <li>Advanced CSS Grid and Flexbox layouts</li>
+                        <li>jQuery fade, slide, and animation effects</li>
+                        <li>Perfect mobile responsiveness</li>
+                        <li>Cross-browser compatibility</li>
+                        <li>Performance optimized</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="#" class="btn btn-primary">View Live Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 mb-4">
+                    <div class="content-card">
+                        <i class="fas fa-project-diagram fa-3x text-primary mb-3"></i>
+                        <h3 class="counter" data-count="6">0</h3>
+                        <p class="text-muted">Projects Completed</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="content-card">
+                        <i class="fas fa-code fa-3x text-success mb-3"></i>
+                        <h3 class="counter" data-count="1000">0</h3>
+                        <p class="text-muted">Lines of Code</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="content-card">
+                        <i class="fas fa-tools fa-3x text-warning mb-3"></i>
+                        <h3 class="counter" data-count="10">0</h3>
+                        <p class="text-muted">Technologies Used</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="content-card">
+                        <i class="fas fa-clock fa-3x text-info mb-3"></i>
+                        <h3 class="counter" data-count="100">0</h3>
+                        <p class="text-muted">Hours of Development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Alisher Akhmett</h5>
+                    <p class="text-muted">Web Developer & Frontend Enthusiast<br>
+                    Student at SE 2425 | Passionate about creating interactive web experiences</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Connect With Me</h5>
+                    <div class="social-icons">
+                        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 Alisher Akhmett. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Assignment #8 - Full Interactive Website</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <button id="backToTop" class="btn btn-primary position-fixed bottom-0 end-0 m-4" style="display: none; z-index: 1000;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

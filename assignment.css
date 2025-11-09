@@ -1,0 +1,15 @@
+
+body{background:#f8f9fa}
+.container{max-width:960px}
+.card{box-shadow:0 2px 8px rgba(0,0,0,0.05)}
+h1,h2,h3{margin:0}
+.mb-4{margin-bottom:1.5rem}
+.small{text-transform:none}
+.form-text{font-size:.85em;color:#6c757d}
+.d-block{display:block}
+
+
+.invalid-feedback{display:block}
+
+
+.center{text-align:center}

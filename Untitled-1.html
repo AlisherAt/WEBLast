@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Personal Site </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+      :root{--sidebar-width:320px}
+      body{background:#f1f2f4;color:#222}
+      .example-card{background:#fff;border:1px solid #e9ecef;border-radius:.6rem;padding:1.25rem;margin-bottom:1.25rem}
+      .personal-section{margin-top:2rem}
+      .featured-image{max-width:320px;border-radius:8px}
+
+      .project-card .card-img-top{height:180px;object-fit:cover;border-top-left-radius:.75rem;border-top-right-radius:.75rem}
+      .project-card .card{border-radius:.75rem;border:1px solid rgba(0,0,0,0.04)}
+      .project-card .card-body .card-title{font-weight:700;margin-bottom:.25rem}
+      .project-card .card-body .card-sub{letter-spacing:.02em;text-transform:uppercase;font-size:.79rem;color:#6c757d;margin-bottom:.5rem}
+      .project-card .btn-view{background:#294d64;color:#fff;border-radius:.35rem;padding:.35rem .9rem;border:none}
+      .project-card .card-body{text-align:center;padding-top:1rem;padding-bottom:1rem}
+
+      .site-grid{display:grid;grid-template-columns:1fr var(--sidebar-width);gap:1.5rem;align-items:start}
+      .main-col{min-width:0}
+      .sidebar-col{width:var(--sidebar-width)}
+      .sidebar-col .js-section{position:sticky;top:1.25rem}
+
+      .js-section{background:#fff;border:1px solid #e9ecef;border-radius:.6rem;padding:1rem;margin-top:1.5rem}
+      .js-row{display:flex;flex-wrap:wrap;gap:1rem}
+      .js-box{flex:1 1 220px;padding:0.75rem;border:1px dashed #e6e6e6;border-radius:.5rem;background:#fbfbfb}
+      .hover-box{width:160px;height:110px;background:#f1f3f5;border-radius:6px;display:flex;align-items:center;justify-content:center}
+      .todo-list li{display:flex;justify-content:space-between;align-items:center;padding:.35rem 0;border-bottom:1px dashed #eee}
+      .todo-list li.completed{text-decoration:line-through;color:#6c757d}
+      .small-btn{padding:.28rem .6rem;font-size:.85rem}
+
+      .jquery-section{background:#fff;border:1px solid #e9ecef;border-radius:.6rem;padding:1rem;margin-top:1rem}
+      .jquery-box{padding:0.75rem;border:1px solid #e6e6e6;border-radius:.5rem;background:#f8f9fa;margin-bottom:1rem}
+      .animate-box{width:60px;height:60px;background:#007bff;border-radius:6px;position:relative}
+      .slide-panel{background:#e9ecef;padding:1rem;border-radius:.5rem;display:none}
+      .image-gallery img{width:80px;height:60px;object-fit:cover;margin:4px;cursor:pointer;border-radius:4px}
+      .accordion-item{border:1px solid #ddd;margin-bottom:4px;border-radius:4px}
+      .accordion-header{background:#f8f9fa;padding:8px 12px;cursor:pointer;font-weight:500}
+      .accordion-content{padding:12px;display:none;background:#fff}
+
+      @media (max-width: 992px){
+        .site-grid{grid-template-columns:1fr}
+        .sidebar-col{order:2}
+        .sidebar-col .js-section{position:static;top:auto}
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+      <div class="container">
+        <a class="navbar-brand" href="#">MyLogo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse" aria-controls="navCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navCollapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#assignment">Assignment</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <div class="site-grid">
+        <div class="main-col">
+        <section class="example-card" aria-labelledby="part1">
+          <h2 id="part1" class="h5"> Basic HTML Forms</h2>
+          <p class="small text-muted"></p>
+          <form id="contact-basic" class="mb-3">
+            <div class="mb-2">
+              <label for="basic-name">Name</label>
+              <input id="basic-name" name="name" type="text" class="form-control" placeholder="Your name">
+            </div>
+            <div class="mb-2">
+              <label for="basic-email">Email</label>
+              <input id="basic-email" name="email" type="email" class="form-control" placeholder="you@example.com">
+            </div>
+            <div class="mb-2">
+              <label for="basic-message">Message</label>
+              <textarea id="basic-message" name="message" rows="4" class="form-control" placeholder="Write your message"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Send</button>
+          </form>
+
+          <hr>
+
+          <p class="small text-muted">Form with HTML5 </p>
+          <form id="contact-validated" novalidate>
+            <div class="mb-2">
+              <label for="v-name" class="form-label">Name <span class="text-danger">*</span></label>
+              <input id="v-name" name="name" type="text" class="form-control" required maxlength="40">
+              <div class="invalid-feedback">Please enter your name .</div>
+            </div>
+            <div class="mb-2">
+              <label for="v-email" class="form-label">Email <span class="text-danger">*</span></label>
+              <input id="v-email" name="email" type="email" class="form-control" required>
+              <div class="invalid-feedback">Please enter an email address.</div>
+            </div>
+            <div class="mb-2">
+              <label for="v-message" class="form-label">Message</label>
+              <textarea id="v-message" name="message" rows="4" class="form-control" maxlength="400"></textarea>
+              <div class="form-text">Max 400 characters</div>
+            </div>
+            <button class="btn btn-success" type="submit">Submit</button>
+          </form>
+        </section>
+
+        <section class="example-card" aria-labelledby="part2">
+          <h2 id="part2" class="h5">Bootstrap Forms</h2>
+          <form id="contact-bootstrap" class="needs-validation row g-3" novalidate>
+            <div class="col-md-6">
+              <label for="bs-name" class="form-label">Name</label>
+              <input id="bs-name" type="text" class="form-control" required>
+              <div class="invalid-feedback">Name is required.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="bs-email" class="form-label">Email</label>
+              <input id="bs-email" type="email" class="form-control" required>
+              <div class="invalid-feedback">Email is required.</div>
+            </div>
+            <div class="col-12">
+              <label for="bs-message" class="form-label">Message</label>
+              <textarea id="bs-message" class="form-control" rows="3" required></textarea>
+              <div class="invalid-feedback">Please enter a message.</div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Send</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="example-card" aria-labelledby="part3">
+          <h2 id="part3" class="h5">Registration Form</h2>
+          <form id="registration-form" class="needs-validation row g-3" novalidate>
+            <div class="col-md-6">
+              <label for="firstName" class="form-label">First name</label>
+              <input id="firstName" name="firstName" class="form-control" required>
+              <div class="invalid-feedback">First name required.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="lastName" class="form-label">Last name</label>
+              <input id="lastName" name="lastName" class="form-control" required>
+              <div class="invalid-feedback">Last name required.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="reg-email" class="form-label">Email</label>
+              <input id="reg-email" name="email" type="email" class="form-control" required>
+              <div class="invalid-feedback">Valid email required.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="country" class="form-label">Country</label>
+              <select id="country" name="country" class="form-select" required>
+                <option value="">Choose...</option>
+                <option>Kazakhstan</option>
+                <option>Uzbekistan</option>
+                <option>Russia</option>
+                <option>Other</option>
+              </select>
+              <div class="invalid-feedback">Please select a country.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="password" class="form-label">Password</label>
+              <input id="password" name="password" type="password" class="form-control" minlength="6" required>
+              <div class="invalid-feedback">Password must be at least 6 characters.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <input id="confirmPassword" name="confirmPassword" type="password" class="form-control" minlength="6" required>
+              <div class="invalid-feedback" id="pwd-feedback">Passwords must match.</div>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Gender</label>
+              <div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" id="genderM" value="male" required>
+                  <label class="form-check-label" for="genderM">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" id="genderF" value="female">
+                  <label class="form-check-label" for="genderF">Female</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" id="genderO" value="other">
+                  <label class="form-check-label" for="genderO">Other</label>
+                </div>
+                <div class="invalid-feedback d-block" id="genderFeedback">Please choose a gender.</div>
+              </div>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Hobbies</label>
+              <div class="d-flex gap-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="h1" name="hobbies" value="sports">
+                  <label class="form-check-label" for="h1">Sports</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="h2" name="hobbies" value="reading">
+                  <label class="form-check-label" for="h2">Reading</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="h3" name="hobbies" value="music">
+                  <label class="form-check-label" for="h3">Music</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 d-flex gap-2">
+              <button class="btn btn-primary" type="submit">Register</button>
+              <button class="btn btn-outline-secondary" type="reset">Reset</button>
+            </div>
+          </form>
+          <div id="regResult" class="mt-3" aria-live="polite"></div>
+        </section>
+      </section>
+
+      <section id="about" class="personal-section">
+        <h2>About Me</h2>
+        <p>Hello! I'm Alisher, a web development enthusiast who loves learning new technologies and building cool projects.</p>
+      </section>
+
+      <section id="projects" class="personal-section project-card">
+        <h2 class="mb-3">Projects</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <img src="img4.png" class="card-img-top" alt="Project Juventus">
+              <div class="card-body text-center">
+                <h5 class="card-title">Project Juventus</h5>
+                <p class="card-sub">GREATEST EVER UCL GOAL</p>
+                <a href="#" class="btn btn-view mt-2">View</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <img src="img5.png" class="card-img-top" alt="Project Perfection">
+              <div class="card-body text-center">
+                <h5 class="card-title">Project Perfection</h5>
+                <p class="card-sub">BEST GOAL FROM BEST PLAYER</p>
+                <a href="#" class="btn btn-view mt-2">View</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <img src="img6.png" class="card-img-top" alt="Project Simeone">
+              <div class="card-body text-center">
+                <h5 class="card-title">Project Simeone</h5>
+                <p class="card-sub">Revenge on Simeone 3-0(SUIIIII)</p>
+                <a href="#" class="btn btn-view mt-2">View</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="personal-section">
+        <h2>Gallery</h2>
+        <div class="row g-2">
+          <div class="col-6 col-md-4"><img src="img1.png" alt="Gallery 1" class="img-fluid rounded"></div>
+          <div class="col-6 col-md-4"><img src="img2.png" alt="Gallery 2" class="img-fluid rounded"></div>
+          <div class="col-6 col-md-4"><img src="img3.png" alt="Gallery 3" class="img-fluid rounded"></div>
+        </div>
+      </section>
+      
+        </div>
+        <aside class="sidebar-col">
+      <section id="assignment6" class="js-section" aria-labelledby="a6">
+        <h2 id="a6">JavaScript Basics</h2>
+        <p class="small text-muted">Student: <strong>Alisher Akhmett</strong> — Group: <strong>SE 2425</strong></p>
+
+        <div class="mb-3">
+          <strong>Introduction & Console</strong>
+          <div class="mt-2">
+            <button id="run-part1" class="btn btn-sm btn-outline-primary small-btn">console & alert</button>
+            <span class="text-muted ms-2">Open DevTools & console to see outputs.</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <strong> DOM Manipulation</strong>
+          <div class="js-row mt-2">
+            <div class="js-box">
+              <h6>Change Content</h6>
+              <p id="p-change">This text will change when you click the button.</p>
+              <button id="btn-change-text" class="btn btn-sm btn-primary small-btn">Change Text</button>
+            </div>
+
+            <div class="js-box">
+              <h6>Change Styles</h6>
+              <div id="style-block" class="p-2" style="background:#fff;border:1px solid #eee">Resizable box text</div>
+              <div class="mt-2">
+                <button id="btn-bg" class="btn btn-sm btn-secondary small-btn">Change BG</button>
+                <button id="btn-font" class="btn btn-sm btn-secondary small-btn">Increase Font</button>
+              </div>
+            </div>
+
+            <div class="js-box">
+              <h6>Create / Remove Elements</h6>
+              <ul id="dynamic-list" class="mb-2">
+                <li>Item 1</li>
+                <li>Item 2</li>
+              </ul>
+              <button id="add-item" class="btn btn-sm btn-success small-btn">Add Item</button>
+              <button id="remove-item" class="btn btn-sm btn-danger small-btn">Remove Item</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <strong>Events</strong>
+          <div class="js-row mt-2">
+            <div class="js-box text-center">
+              <h6>Mouse Events</h6>
+              <div id="hover-box" class="hover-box">Hover me</div>
+            </div>
+            <div class="js-box">
+              <h6>Keyboard Events</h6>
+              <input id="key-input" class="form-control form-control-sm" placeholder="Type here"> 
+              <div id="key-display" class="mt-2 small text-muted">Current value: <span id="key-val"></span></div>
+            </div>
+            <div class="js-box">
+              <h6>Form Validation </h6>
+              <form id="mini-form">
+                <input id="fv-name" class="form-control form-control-sm mb-1" placeholder="Name">
+                <input id="fv-email" class="form-control form-control-sm mb-1" placeholder="Email">
+                <input id="fv-pass" type="password" class="form-control form-control-sm mb-1" placeholder="Password">
+                <div id="fv-error" class="text-danger small"></div>
+                <button class="btn btn-sm btn-primary mt-2 small-btn">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <strong> Mini To-Do App</strong>
+          <div class="mt-2">
+            <div class="d-flex gap-2">
+              <input id="todo-input" class="form-control form-control-sm" placeholder="New task">
+              <button id="add-task" class="btn btn-sm btn-primary small-btn">Add Task</button>
+            </div>
+            <ul id="todo-list" class="todo-list mt-2" style="list-style:none;padding-left:0"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="assignment7" class="jquery-section" aria-labelledby="a7">
+        <h2 id="a7">Assignment 7 — jQuery Effects & Animation</h2>
+        <p class="small text-muted">Student: <strong>Alisher Akhmett</strong> — Group: <strong>SE 2425</strong></p>
+
+        <div class="jquery-box">
+          <h6>Part 1 — Setup & Selectors</h6>
+          <button id="jquery-test" class="btn btn-sm btn-primary small-btn">Test jQuery Ready</button>
+          <div class="mt-2">
+            <p id="selector-text">Original text</p>
+            <div class="selector-class">Class element</div>
+            <span class="selector-tag">Tag element</span>
+            <button id="change-content" class="btn btn-sm btn-secondary small-btn">Change Content</button>
+            <button id="change-styles" class="btn btn-sm btn-secondary small-btn">Change Styles</button>
+          </div>
+        </div>
+
+        <div class="jquery-box">
+          <h6>Part 2 — jQuery Effects</h6>
+          <div class="mb-2">
+            <p id="visibility-text">This text can be hidden/shown.</p>
+            <button id="hide-text" class="btn btn-sm btn-outline-danger small-btn">Hide</button>
+            <button id="show-text" class="btn btn-sm btn-outline-success small-btn">Show</button>
+            <button id="toggle-text" class="btn btn-sm btn-outline-primary small-btn">Toggle</button>
+          </div>
+          <div class="mb-2">
+            <img id="fade-image" src="img1.png" style="width:80px;height:60px;object-fit:cover;" alt="Fade demo">
+            <br>
+            <button id="fade-in" class="btn btn-sm btn-outline-info small-btn">Fade In</button>
+            <button id="fade-out" class="btn btn-sm btn-outline-warning small-btn">Fade Out</button>
+            <button id="fade-toggle" class="btn btn-sm btn-outline-secondary small-btn">Fade Toggle</button>
+          </div>
+          <div>
+            <button id="slide-btn" class="btn btn-sm btn-primary small-btn">Toggle Slide Panel</button>
+            <div id="slide-panel" class="slide-panel">
+              <p>This is a collapsible panel using jQuery slide effects!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="jquery-box">
+          <h6>Part 3 — DOM Manipulation</h6>
+          <div class="mb-2">
+            <ul id="jquery-list">
+              <li>Item 1</li>
+              <li>Item 2</li>
+            </ul>
+            <button id="add-item-jquery" class="btn btn-sm btn-success small-btn">Add Item</button>
+            <button id="remove-item-jquery" class="btn btn-sm btn-danger small-btn">Remove Item</button>
+          </div>
+          <div class="mb-2">
+            <img id="attr-image" src="img1.png" style="width:60px;height:45px;object-fit:cover;" alt="Attribute demo">
+            <a id="attr-link" href="#" target="_blank">Dynamic Link</a><br>
+            <button id="change-image" class="btn btn-sm btn-info small-btn">Change Image</button>
+            <button id="change-link" class="btn btn-sm btn-info small-btn">Change Link</button>
+          </div>
+          <div>
+            <input id="name-input" class="form-control form-control-sm mb-1" placeholder="Name">
+            <input id="email-input" class="form-control form-control-sm mb-1" placeholder="Email">
+            <div id="live-output" class="small text-muted">Live output appears here...</div>
+          </div>
+        </div>
+
+        <div class="jquery-box">
+          <h6>Part 4 — Animations</h6>
+          <div class="mb-2">
+            <div id="animate-box" class="animate-box"></div>
+            <button id="basic-animate" class="btn btn-sm btn-primary small-btn">Basic Animation</button>
+            <button id="sequence-animate" class="btn btn-sm btn-warning small-btn">Sequential</button>
+            <button id="combined-animate" class="btn btn-sm btn-success small-btn">Combined</button>
+            <button id="reset-box" class="btn btn-sm btn-secondary small-btn">Reset</button>
+          </div>
+        </div>
+
+        <div class="jquery-box">
+          <h6>Part 5 — Mini Project: Image Gallery</h6>
+          <div class="image-gallery mb-2">
+            <img src="img1.png" alt="Gallery 1" data-large="img1.png">
+            <img src="img2.png" alt="Gallery 2" data-large="img2.png">
+            <img src="img3.png" alt="Gallery 3" data-large="img3.png">
+            <img src="img4.png" alt="Gallery 4" data-large="img4.png">
+          </div>
+          <div id="large-image-container" style="display:none;">
+            <img id="large-image" style="max-width:200px;border-radius:8px;" alt="Large view">
+            <button id="close-large" class="btn btn-sm btn-outline-secondary small-btn ms-2">Close</button>
+          </div>
+        </div>
+      </section>
+        </aside>
+      </div>
+    </main>
+
+      <footer class="text-center text-muted my-4">© 2025 Alisher SE 2425</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function attachRealtimeValidation(form){
+        const elements = Array.from(form.querySelectorAll('input,select,textarea'));
+        elements.forEach(el=>{
+          el.addEventListener('input', ()=>{
+            if(el.type==='radio') return;
+            if(el.checkValidity()){el.classList.remove('is-invalid'); el.classList.add('is-valid')} else {el.classList.remove('is-valid'); if(el.value!=='') el.classList.add('is-invalid'); else el.classList.remove('is-invalid')}
+          })
+        })
+      }
+
+      const password = document.getElementById('password'), confirmPassword = document.getElementById('confirmPassword');
+      function validatePasswordMatch(){ if(!password||!confirmPassword) return; if(confirmPassword.value===''){confirmPassword.setCustomValidity(''); return} if(password.value!==confirmPassword.value){confirmPassword.setCustomValidity('Passwords do not match')} else {confirmPassword.setCustomValidity('')} }
+      [password,confirmPassword].forEach(el=>{ if(!el) return; el.addEventListener('input', ()=>{ validatePasswordMatch(); if(el.checkValidity()){el.classList.remove('is-invalid'); el.classList.add('is-valid')} else {el.classList.remove('is-valid'); el.classList.add('is-invalid')} }) })
+
+      document.querySelectorAll('form.needs-validation').forEach(form=>{
+        attachRealtimeValidation(form);
+        form.addEventListener('submit', function(e){
+          const genderGroup = form.querySelectorAll('input[name="gender"]');
+          if(genderGroup && genderGroup.length){ const any = Array.from(genderGroup).some(r=>r.checked); const gf = document.getElementById('genderFeedback'); if(!any){ gf.style.display='block' } else { gf.style.display='none' } }
+          validatePasswordMatch();
+          if(!form.checkValidity()){ e.preventDefault(); e.stopPropagation(); } else { e.preventDefault(); const result=document.getElementById('regResult'); if(result) result.innerHTML='<div class="alert alert-success">Form submitted successfully (demo).</div>' }
+          form.classList.add('was-validated');
+        }, false)
+      })
+
+      document.getElementById('contact-validated').addEventListener('submit', function(e){ if(!this.checkValidity()){ e.preventDefault(); this.reportValidity(); } else { e.preventDefault(); alert('Contact form submitted (demo)') } })
+      document.getElementById('contact-basic').addEventListener('submit', function(e){ e.preventDefault(); alert('Thank you — message recorded (demo).') })
+    </script>
+
+    <script>
+  document.addEventListener('DOMContentLoaded', function(){
+ const studentName = 'Alisher Akhmett'; 
+  const studentGroup = 'SE 2425'; 
+
+        const runPart1 = document.getElementById('run-part1');
+        if(runPart1){
+          runPart1.addEventListener('click', function(){
+            console.log('Student name:', studentName);
+            console.log('Group:', studentGroup);
+            console.log('Variables demo: string, number, boolean');
+            const s = 'hello'; const n = 5; const b = true;
+            console.log('string:', s, 'number:', n, 'boolean:', b);
+            console.log('Arithmetic: 5 + 3 =', 5+3);
+            console.log('Concat:', 'Name: ' + studentName + ' | Group: ' + studentGroup);
+            alert('Hello, JavaScript World!');
+          });
+        }
+
+        document.getElementById('btn-change-text')?.addEventListener('click', function(){
+          const p = document.getElementById('p-change');
+          if(p) p.textContent = 'The text was changed by JavaScript!';
+        });
+
+        const bgBtn = document.getElementById('btn-bg');
+        const fontBtn = document.getElementById('btn-font');
+        const styleBlock = document.getElementById('style-block');
+        let bgIndex = 0, fontSize = 14;
+        const colors = ['#ffffff','#fff3cd','#d1ecf1','#e2f0d9'];
+        bgBtn?.addEventListener('click', ()=>{
+          bgIndex = (bgIndex + 1) % colors.length;
+          if(styleBlock) styleBlock.style.background = colors[bgIndex];
+        });
+        fontBtn?.addEventListener('click', ()=>{
+          fontSize += 2; if(styleBlock) styleBlock.style.fontSize = fontSize + 'px';
+        });
+
+        const list = document.getElementById('dynamic-list');
+        let added = 0;
+        document.getElementById('add-item')?.addEventListener('click', ()=>{
+          added++;
+          const li = document.createElement('li');
+          li.textContent = 'New item ' + added;
+          list?.appendChild(li);
+        });
+        document.getElementById('remove-item')?.addEventListener('click', ()=>{
+          if(list && list.lastElementChild) list.removeChild(list.lastElementChild);
+        });
+
+        const hoverBox = document.getElementById('hover-box');
+        if(hoverBox){
+          hoverBox.addEventListener('mouseover', ()=>{ hoverBox.style.background = '#cfe9ff'; });
+          hoverBox.addEventListener('mouseout', ()=>{ hoverBox.style.background = '#f1f3f5'; });
+        }
+
+        const keyInput = document.getElementById('key-input');
+        const keyVal = document.getElementById('key-val');
+        keyInput?.addEventListener('keyup', (e)=>{ if(keyVal) keyVal.textContent = e.target.value; });
+
+        document.getElementById('mini-form')?.addEventListener('submit', function(e){
+          e.preventDefault();
+          const n = document.getElementById('fv-name').value.trim();
+          const em = document.getElementById('fv-email').value.trim();
+          const pw = document.getElementById('fv-pass').value.trim();
+          const err = document.getElementById('fv-error');
+          if(!n || !em || !pw){ err.textContent = 'Please fill all fields.'; return; }
+          err.textContent = '';
+          alert('Mini form submitted (demo)');
+        });
+
+        const todoInput = document.getElementById('todo-input');
+        const addTaskBtn = document.getElementById('add-task');
+        const todoList = document.getElementById('todo-list');
+        const tasks = [];
+
+        function renderTasks(){
+          todoList.innerHTML = '';
+          tasks.forEach((t,i)=>{
+            const li = document.createElement('li');
+            li.className = t.done ? 'completed' : '';
+            li.style.display = 'flex'; li.style.justifyContent = 'space-between'; li.style.alignItems = 'center';
+            const span = document.createElement('span'); span.textContent = t.text;
+            const controls = document.createElement('div');
+            const del = document.createElement('button'); del.className='btn btn-sm btn-outline-danger small-btn'; del.textContent='Delete'; del.dataset.index = i;
+            const done = document.createElement('button'); done.className='btn btn-sm btn-outline-success small-btn ms-1'; done.textContent = t.done? 'Undo':'Done'; done.dataset.index = i;
+            controls.appendChild(del); controls.appendChild(done);
+            li.appendChild(span); li.appendChild(controls);
+            todoList.appendChild(li);
+          });
+        }
+
+        addTaskBtn?.addEventListener('click', function(){
+          const v = todoInput.value.trim(); if(!v) return; tasks.push({text:v,done:false}); todoInput.value=''; renderTasks();
+        });
+
+        todoList?.addEventListener('click', function(e){
+          const btn = e.target.closest('button'); if(!btn) return;
+          const idx = Number(btn.dataset.index);
+          if(btn.textContent === 'Delete'){ tasks.splice(idx,1); renderTasks(); }
+          else { tasks[idx].done = !tasks[idx].done; renderTasks(); }
+        });
+
+      });
+    </script>
+
+    <script>
+      $(document).ready(function(){
+        console.log("jQuery is ready!");
+
+        $('#jquery-test').click(function(){
+          alert('jQuery is working! Check console for ready message.');
+        });
+
+        $('#change-content').click(function(){
+          $('#selector-text').text('Text changed with jQuery!');
+          $('.selector-class').html('<strong>Class content changed!</strong>');
+          $('span.selector-tag').text('Tag element updated');
+        });
+
+        $('#change-styles').click(function(){
+          $('#selector-text').css({
+            'color': '#007bff',
+            'font-weight': 'bold',
+            'background-color': '#f8f9fa',
+            'padding': '8px'
+          });
+        });
+
+        $('#hide-text').click(() => $('#visibility-text').hide());
+        $('#show-text').click(() => $('#visibility-text').show());
+        $('#toggle-text').click(() => $('#visibility-text').toggle());
+
+        $('#fade-out').click(() => $('#fade-text').fadeOut());
+        $('#fade-out').click(() => $('#fade-image').fadeOut());
+        $('#fade-toggle').click(() => $('#fade-text').fadeToggle());
+
+        $('#slide-toggle').click(() => $('#slide-panel').slideToggle());
+
+        let itemCount = 2;
+        $('#add-item-jquery').click(function(){
+          itemCount++;
+          $('#jquery-list').append('<li>New item ' + itemCount + '</li>');
+        });
+
+        $('#remove-item-jquery').click(function(){
+          $('#jquery-list li:last').remove();
+        });
+
+        const images = ['img1.png', 'img2.png', 'img3.png', 'img4.png'];
+        let currentImg = 0;
+        $('#change-image').click(function(){
+          currentImg = (currentImg + 1) % images.length;
+          $('#attr-image').attr('src', images[currentImg]);
+        });
+
+        const links = ['https://github.com', 'https://stackoverflow.com', 'https://developer.mozilla.org'];
+        let currentLink = 0;
+        $('#change-link').click(function(){
+          currentLink = (currentLink + 1) % links.length;
+          $('#attr-link').attr('href', links[currentLink]).text('Visit ' + links[currentLink]);
+        });
+
+        $('#name-input, #email-input').on('input', function(){
+          const name = $('#name-input').val();
+          const email = $('#email-input').val();
+          $('#live-output').text('Name: ' + name + ' | Email: ' + email);
+        });
+
+        $('#basic-animate').click(function(){
+          $('#animate-box').animate({
+            width: '120px',
+            height: '120px',
+            left: '100px'
+          }, 1000);
+        });
+
+        $('#sequence-animate').click(function(){
+          $('#animate-box')
+            .animate({left: '150px'}, 500)
+            .animate({top: '50px'}, 500)
+            .animate({width: '30px', height: '30px'}, 500)
+            .animate({left: '0px', top: '0px', width: '60px', height: '60px'}, 500);
+        });
+
+        $('#combined-animate').click(function(){
+          $('#animate-box').animate({
+            opacity: 0.5,
+            width: '100px',
+            height: '100px',
+            left: '80px',
+            top: '30px'
+          }, 1500);
+        });
+
+        $('#reset-box').click(function(){
+          $('#animate-box').stop(true, true).css({
+            width: '60px',
+            height: '60px',
+            left: '0px',
+            top: '0px',
+            opacity: 1
+          });
+        });
+
+        $('.image-gallery img').click(function(){
+          const largeSrc = $(this).data('large');
+          $('#large-image').attr('src', largeSrc);
+          $('#large-image-container').fadeIn();
+        });
+
+        $('#close-large').click(function(){
+          $('#large-image-container').fadeOut();
+        });
+
+        $('.image-gallery img').hover(
+          function(){ $(this).fadeOut(200).fadeIn(200); },
+          function(){}
+        );
+      });
+    </script>
+  </body>
+</html>
